@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+          {% for m in messages %}
+            <div class="alert alert-dismissible alert-info">
+              <button type="button" class="close" data-dismiss="alert">&times;</button>
+              <h4>{{ m }}</h4>
+            </div>
+            <br>
+          {% endfor %}
+      {% endif %}
+  {% endwith %}
+  <br>
+  <div class="jubotron">
+    <form class="form-horizontal" action="/update" method="POST">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="updater" value="{{ request.form.updater }}">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+{% endblock %}

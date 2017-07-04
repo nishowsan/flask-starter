@@ -1,0 +1,6 @@
+Flask==0.12.2
+Flask-Bcrypt==0.7.1
+Flask-Mail==0.9.1
+Flask-PyMongo==0.5.1
+pyglet==1.2.4
+Jinja2==2.9.6

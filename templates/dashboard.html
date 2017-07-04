@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block content %}
+
+  {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}
+          <div class="alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <h4>Hey {{ m }} ...</h4>
+            <p>{{ m }}</p>
+          </div>
+        {% endfor %}
+      {% endif %}
+  {% endwith %}
+
+  <ul class="nav nav-tabs">
+    <li class=""><a href="#home" data-toggle="tab" aria-expanded="false">Basics</a></li>
+    <li class="active"><a href="#profile" data-toggle="tab" aria-expanded="true">Web Dev</a></li>
+    <li class="active"><a href="#dataScience" data-toggle="tab" aria-expanded="true">Data Science</a></li>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+      <div class="tab-pane fade" id="home">
+        <br>
+        <div class="list-group">
+          <a href="#" class="list-group-item active">
+            Python Basic Tutorials ...
+          </a>
+          {% for t in TOPIC_DICT["Basics"] %}
+            <a href="{{ t[1] }}" class="list-group-item">
+            {{ t[0] }}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="tab-pane fade active in" id="profile">
+      </div>
+      <div class="tab-pane fade active in" id="dataScience">
+      </div>
+  </div>
+{% endblock %}
